@@ -1,0 +1,1 @@
+<?php	if( !defined( "IN_VIEWIT" ) )	{		die("Access deined!");	}		$Video = $_POST['vid'];		if( $User->isGuest() || !$User->isAdmin() )	{		$User->setMessage( "Access Denied!" );	}else{		if( is_numeric( $Video ) && !empty( $Video ) )		{			$Title = $_POST['videoTitle'];			$Desc = $_POST['videoDesc'];						Video::updateInfo( $Video, $Title, $Desc );		}	}?>
